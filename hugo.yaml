@@ -3,6 +3,10 @@ languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
+relativeURLs: false
+canonifyURLs: true
+enableGitInfo: false
+
 outputs:
   home:
     - "HTML"
@@ -44,6 +48,8 @@ params:
   # Để trống staticPath
   staticPath: ""
   favicon: "/images/favicon.ico"
+
+  custom_css: ["/css/index.css", "/css/custom.css", "/css/project.css"]
 
   # Bật lại Bootstrap CDN
   useBootstrapCDN: true

@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ui on Hugo Profile</title><link>https://ThachKhang2204.github.io/blog/tags/ui/</link><description>Recent content in Ui on Hugo Profile</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ThachKhang2204.github.io/blog/tags/ui/index.xml" rel="self" type="application/rss+xml"/><item><title>ReactJS – Xây Dựng Giao Diện Người Dùng Theo Cách Của Facebook</title><link>https://ThachKhang2204.github.io/blog/blog/baiblog6/</link><pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate><guid>https://ThachKhang2204.github.io/blog/blog/baiblog6/</guid><description>&lt;p&gt;Trong thế giới frontend, sự thay đổi diễn ra chóng mặt. Nhưng giữa hàng loạt các thư viện và framework, &lt;strong&gt;ReactJS&lt;/strong&gt; nổi lên như một thế lực thống trị. Được tạo ra và bảo trì bởi Facebook, React đã thay đổi hoàn toàn cách chúng ta suy nghĩ và xây dựng giao diện người dùng (UI) cho các ứng dụng web hiện đại.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id="1-react-là-gì-và-nó-không-phải-là-một-framework"&gt;1. React là gì? (Và nó KHÔNG phải là một framework)&lt;/h2&gt;
-&lt;p&gt;Một điểm quan trọng cần làm rõ: React là một &lt;strong&gt;thư viện (library)&lt;/strong&gt; JavaScript, không phải là một &lt;strong&gt;framework&lt;/strong&gt; hoàn chỉnh như Angular hay Vue.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ui on Hugo Profile</title>
+    <link>http://localhost:1313/blog/tags/ui/</link>
+    <description>Recent content in Ui on Hugo Profile</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/ui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ReactJS – Xây Dựng Giao Diện Người Dùng Theo Cách Của Facebook</title>
+      <link>http://localhost:1313/blog/blog/baiblog6/</link>
+      <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/blog/baiblog6/</guid>
+      <description>&lt;p&gt;Trong thế giới frontend, sự thay đổi diễn ra chóng mặt. Nhưng giữa hàng loạt các thư viện và framework, &lt;strong&gt;ReactJS&lt;/strong&gt; nổi lên như một thế lực thống trị. Được tạo ra và bảo trì bởi Facebook, React đã thay đổi hoàn toàn cách chúng ta suy nghĩ và xây dựng giao diện người dùng (UI) cho các ứng dụng web hiện đại.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-react-là-gì-và-nó-không-phải-là-một-framework&#34;&gt;1. React là gì? (Và nó KHÔNG phải là một framework)&lt;/h2&gt;&#xA;&lt;p&gt;Một điểm quan trọng cần làm rõ: React là một &lt;strong&gt;thư viện (library)&lt;/strong&gt; JavaScript, không phải là một &lt;strong&gt;framework&lt;/strong&gt; hoàn chỉnh như Angular hay Vue.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

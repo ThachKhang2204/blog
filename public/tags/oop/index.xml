@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oop on Hugo Profile</title><link>https://ThachKhang2204.github.io/blog/tags/oop/</link><description>Recent content in Oop on Hugo Profile</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ThachKhang2204.github.io/blog/tags/oop/index.xml" rel="self" type="application/rss+xml"/><item><title>Khám Phá Cốt Lõi Của Java – Sức Mạnh Của Lập Trình Hướng Đối Tượng (OOP)</title><link>https://ThachKhang2204.github.io/blog/blog/kham_pha_cot_loi_java/</link><pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate><guid>https://ThachKhang2204.github.io/blog/blog/kham_pha_cot_loi_java/</guid><description>&lt;p&gt;Trong bài trước, chúng ta đã tìm hiểu lý do Java trở thành một nền tảng lập trình quan trọng. Hôm nay, chúng ta sẽ đào sâu vào triết lý đã làm nên sức mạnh của Java: &lt;strong&gt;Lập trình Hướng đối tượng (Object-Oriented Programming - OOP)&lt;/strong&gt;. Đây không chỉ là một tập hợp các quy tắc, mà là một phương pháp tư duy giúp xây dựng các hệ thống phức tạp một cách có tổ chức và dễ bảo trì.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oop on Hugo Profile</title>
+    <link>http://localhost:1313/blog/tags/oop/</link>
+    <description>Recent content in Oop on Hugo Profile</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Khám Phá Cốt Lõi Của Java – Sức Mạnh Của Lập Trình Hướng Đối Tượng (OOP)</title>
+      <link>http://localhost:1313/blog/blog/kham_pha_cot_loi_java/</link>
+      <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/blog/kham_pha_cot_loi_java/</guid>
+      <description>&lt;p&gt;Trong bài trước, chúng ta đã tìm hiểu lý do Java trở thành một nền tảng lập trình quan trọng. Hôm nay, chúng ta sẽ đào sâu vào triết lý đã làm nên sức mạnh của Java: &lt;strong&gt;Lập trình Hướng đối tượng (Object-Oriented Programming - OOP)&lt;/strong&gt;. Đây không chỉ là một tập hợp các quy tắc, mà là một phương pháp tư duy giúp xây dựng các hệ thống phức tạp một cách có tổ chức và dễ bảo trì.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
