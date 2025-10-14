@@ -1,4 +1,4 @@
-baseURL: "https://ThachKhang2204.github.io/blog/"
+baseURL: "https://ThachKhang2204.github.io/myblog/"
 languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
