@@ -3,7 +3,9 @@ languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
-
+relativeURLs: true
+canonifyURLs: true
+enableGitInfo: false
 
 outputs:
   home:
