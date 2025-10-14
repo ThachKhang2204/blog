@@ -3,9 +3,7 @@ languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
-relativeURLs: false
-canonifyURLs: true
-enableGitInfo: false
+
 
 outputs:
   home:
@@ -18,6 +16,12 @@ outputs:
 
 enableRobotsTXT: true
 
+#services:
+  #googleAnalytics:
+    #id: G-MEASUREMENT_ID
+  #disqus:
+    #shortname: your-disqus-shortname
+
 pagination:
   pagerSize: 3
 
@@ -26,8 +30,7 @@ markup:
     renderer:
       unsafe: true
 
-# Để trống staticPath
-staticPath: ""
+staticPath: "/blog"
 
 menu:
   main:
@@ -45,13 +48,11 @@ menu:
 params:
   title: "Blog của Khang"
   description: "Blog cá nhân về lập trình và công nghệ"
-  # Để trống staticPath
   staticPath: ""
   favicon: "/images/favicon.ico"
 
   custom_css: ["/css/index.css", "/css/custom.css", "/css/project.css"]
 
-  # Bật lại Bootstrap CDN
   useBootstrapCDN: true
   animate: true
 
@@ -89,7 +90,7 @@ params:
     title: "Khang"
     subtitle: "Sinh viên & Lập trình viên"
     content: "Đây là blog cá nhân nơi tôi chia sẻ kiến thức về lập trình, học tập và công nghệ."
-    image: /images/avatar.jpg
+    image: /blog/images/avatar.jpg
     bottomImage:
       enable: true
     roundImage: true
@@ -109,7 +110,7 @@ params:
   about:
     enable: true
     title: "Về tôi"
-    image: "/images/avatar.jpg"
+    image: "/blog/images/avatar.jpg"
     content: |-
       Tôi là một sinh viên đam mê lập trình và công nghệ. Hiện tại đang học tập và phát triển kỹ năng trong các lĩnh vực:
       
@@ -179,14 +180,14 @@ params:
         image: /images/projects/project2.jpg
         featured:
           name: Demo
-          link: https://ThachKhang2204.github.io/blog
+          link: https://ThachKhang2204.github.io/myblog
         badges:
           - "Hugo"
           - "Markdown"
           - "GitHub Pages"
         links:
           - icon: fab fa-github
-            url: https://github.com/ThachKhang2204/blog
+            url: https://github.com/ThachKhang2204/myblog
 
   contact:
     enable: true
@@ -230,11 +231,3 @@ params:
     article: "Jan 2, 2006"
     articleList: "Jan 2, 2006"
     articleRecent: "Jan 2, 2006"
-
-# Thêm vào cuối file
-module:
-  mounts:
-    - source: static
-      target: static
-    - source: themes/hugo-profile/static
-      target: static
