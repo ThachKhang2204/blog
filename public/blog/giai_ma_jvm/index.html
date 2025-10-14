@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=54029&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/fav.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:54029/blog/giai_ma_jvm/">
+  <meta property="og:site_name" content="Blog của Khang">
+  <meta property="og:title" content="Giải Mã JVM – Cỗ Máy Ảo Đằng Sau Sức Mạnh Đa Nền Tảng Của Java">
+  <meta property="og:description" content="Chúng ta thường nghe về triết lý nổi tiếng của Java: “Write Once, Run Anywhere” (Viết một lần, chạy khắp nơi). Nhưng điều gì đã biến khẩu hiệu này thành hiện thực? Câu trả lời nằm ở một thành phần cốt lõi có tên là Máy ảo Java (Java Virtual Machine - JVM). Bài viết này sẽ giải mã cơ chế hoạt động và vai trò không thể thiếu của JVM trong hệ sinh thái Java.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Jvm">
+    <meta property="article:tag" content="Backend">
+    <meta property="article:tag" content="Architecture">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Giải Mã JVM – Cỗ Máy Ảo Đằng Sau Sức Mạnh Đa Nền Tảng Của Java">
+  <meta name="twitter:description" content="Chúng ta thường nghe về triết lý nổi tiếng của Java: “Write Once, Run Anywhere” (Viết một lần, chạy khắp nơi). Nhưng điều gì đã biến khẩu hiệu này thành hiện thực? Câu trả lời nằm ở một thành phần cốt lõi có tên là Máy ảo Java (Java Virtual Machine - JVM). Bài viết này sẽ giải mã cơ chế hoạt động và vai trò không thể thiếu của JVM trong hệ sinh thái Java.">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Giải Mã JVM – Cỗ Máy Ảo Đằng Sau Sức Mạnh Đa Nền Tảng Của Java | Blog của Khang
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg ">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            Giới thiệu bản thân
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Dự án của tôi
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="#about" title="">
+                            
+                            About
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="#projects" title="">
+                            
+                            Projects
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog" title="">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Giải Mã JVM – Cỗ Máy Ảo Đằng Sau Sức Mạnh Đa Nền Tảng Của Java</h1>
+            <div class="text-center">
+              
+              Jan 1, 2025
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>Chúng ta thường nghe về triết lý nổi tiếng của Java: <strong>“Write Once, Run Anywhere” (Viết một lần, chạy khắp nơi)</strong>. Nhưng điều gì đã biến khẩu hiệu này thành hiện thực? Câu trả lời nằm ở một thành phần cốt lõi có tên là <strong>Máy ảo Java (Java Virtual Machine - JVM)</strong>. Bài viết này sẽ giải mã cơ chế hoạt động và vai trò không thể thiếu của JVM trong hệ sinh thái Java.</p>
+<hr>
+<h2 id="1-jvm-là-gì">1. JVM là gì?</h2>
+<p>JVM là một <em>môi trường thực thi ảo</em> giúp chạy các chương trình Java. Thay vì biên dịch mã nguồn trực tiếp thành mã máy dành riêng cho một hệ điều hành (như C++), trình biên dịch Java (<code>javac</code>) sẽ chuyển mã nguồn <code>.java</code> thành một định dạng trung gian gọi là <strong>Bytecode</strong> (tệp <code>.class</code>).</p>
+<p>Sau đó, JVM được cài đặt trên mỗi nền tảng (Windows, macOS, Linux) sẽ dịch Bytecode này thành mã máy tương ứng. Nhờ cơ chế này, bạn chỉ cần viết mã một lần, và JVM sẽ lo phần còn lại để nó có thể chạy trên mọi thiết bị.</p>
+<hr>
+<h2 id="2-kiến-trúc-bên-trong-của-jvm">2. Kiến trúc bên trong của JVM</h2>
+<p>JVM là một hệ thống phức tạp gồm nhiều thành phần hoạt động cùng nhau.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Thành phần</th>
+          <th>Chức năng</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Class Loader</strong></td>
+          <td>Tải các tệp <code>.class</code> (Bytecode) vào bộ nhớ của JVM để chuẩn bị thực thi.</td>
+      </tr>
+      <tr>
+          <td><strong>Memory Area</strong></td>
+          <td>Khu vực bộ nhớ mà JVM sử dụng để lưu trữ dữ liệu, bao gồm các vùng quan trọng như <strong>Heap</strong> và <strong>Stack</strong>.</td>
+      </tr>
+      <tr>
+          <td><strong>Execution Engine</strong></td>
+          <td>&ldquo;Trái tim&rdquo; của JVM, chịu trách nhiệm thực thi Bytecode thông qua trình thông dịch (Interpreter) và trình biên dịch JIT (Just-In-Time).</td>
+      </tr>
+      <tr>
+          <td><strong>Garbage Collector (GC)</strong></td>
+          <td>Một tiến trình tự động giúp giải phóng bộ nhớ bằng cách dọn dẹp các đối tượng không còn được sử dụng, giúp ngăn ngừa rò rỉ bộ nhớ.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-heap-và-stack-hai-vùng-nhớ-cốt-lõi">3. Heap và Stack: Hai vùng nhớ cốt lõi</h2>
+<p>Hiểu cách JVM quản lý bộ nhớ là cực kỳ quan trọng đối với mọi lập trình viên Java.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Vùng nhớ</th>
+          <th>Đặc điểm</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Stack Memory</strong></td>
+          <td>Lưu trữ các biến cục bộ (local variables) và các lời gọi phương thức (method calls). Mỗi luồng (thread) có một Stack riêng và hoạt động theo cơ chế LIFO (Last-In, First-Out).</td>
+      </tr>
+      <tr>
+          <td><strong>Heap Memory</strong></td>
+          <td>Lưu trữ tất cả các đối tượng (Objects) được tạo ra bằng từ khóa <code>new</code>. Đây là vùng nhớ được chia sẻ chung giữa tất cả các luồng và được quản lý bởi Garbage Collector.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Việc quản lý bộ nhớ không hiệu quả có thể dẫn đến lỗi <code>OutOfMemoryError</code>, một trong những lỗi phổ biến nhất khi lập trình Java.</p>
+<hr>
+<h2 id="4-jit-compiler--bí-quyết-tăng-tốc-độ">4. JIT Compiler – Bí quyết tăng tốc độ</h2>
+<p>Ban đầu, JVM dùng trình thông dịch (Interpreter) để đọc và thực thi từng dòng Bytecode, điều này khá chậm. Để khắc phục, JVM tích hợp <strong>JIT (Just-In-Time) Compiler</strong>. JIT sẽ xác định các đoạn mã được thực thi thường xuyên và biên dịch chúng trực tiếp thành mã máy gốc. Những lần gọi sau đó sẽ chạy nhanh hơn rất nhiều, giúp hiệu suất của Java tiệm cận với các ngôn ngữ biên dịch như C++.</p>
+<hr>
+<h2 id="5-kết-luận">5. Kết luận</h2>
+<p>JVM không chỉ là một trình chạy mã; nó là một kiệt tác kỹ thuật mang lại cho Java khả năng đa nền tảng, quản lý bộ nhớ tự động và hiệu suất cao. Hiểu rõ về JVM giúp lập trình viên viết mã hiệu quả hơn, tối ưu hóa hiệu năng và gỡ lỗi một cách chuyên nghiệp.</p>
+<blockquote>
+<p><em>Trong bài viết tiếp theo, chúng ta sẽ bắt đầu hành trình với JavaScript – ngôn ngữ không thể thiếu cho thế giới web hiện đại.</em></p></blockquote>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-jvm-là-gì">1. JVM là gì?</a></li>
+    <li><a href="#2-kiến-trúc-bên-trong-của-jvm">2. Kiến trúc bên trong của JVM</a></li>
+    <li><a href="#3-heap-và-stack-hai-vùng-nhớ-cốt-lõi">3. Heap và Stack: Hai vùng nhớ cốt lõi</a></li>
+    <li><a href="#4-jit-compiler--bí-quyết-tăng-tốc-độ">4. JIT Compiler – Bí quyết tăng tốc độ</a></li>
+    <li><a href="#5-kết-luận">5. Kết luận</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:54029/tags/java"
+                target="_blank"
+              >java</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:54029/tags/jvm"
+                target="_blank"
+              >jvm</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:54029/tags/backend"
+                target="_blank"
+              >backend</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:54029/tags/architecture"
+                target="_blank"
+              >architecture</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text= http%3a%2f%2flocalhost%3a54029%2fblog%2fgiai_ma_jvm%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  
+                  
+                  <a target="_blank" href='https://twitter.com/share?text=Gi%e1%ba%a3i%20M%c3%a3%20JVM%20%e2%80%93%20C%e1%bb%97%20M%c3%a1y%20%e1%ba%a2o%20%c4%90%e1%ba%b1ng%20Sau%20S%e1%bb%a9c%20M%e1%ba%a1nh%20%c4%90a%20N%e1%bb%81n%20T%e1%ba%a3ng%20C%e1%bb%a7a%20Java&url=%3cnil%3ehttp%3a%2f%2flocalhost%3a54029%2fblog%2fgiai_ma_jvm%2f&hashtags=java%2cjvm%2cbackend%2carchitecture'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Gi%e1%ba%a3i%20M%c3%a3%20JVM%20%e2%80%93%20C%e1%bb%97%20M%c3%a1y%20%e1%ba%a2o%20%c4%90%e1%ba%b1ng%20Sau%20S%e1%bb%a9c%20M%e1%ba%a1nh%20%c4%90a%20N%e1%bb%81n%20T%e1%ba%a3ng%20C%e1%bb%a7a%20Java: http%3a%2f%2flocalhost%3a54029%2fblog%2fgiai_ma_jvm%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Gi%e1%ba%a3i%20M%c3%a3%20JVM%20%e2%80%93%20C%e1%bb%97%20M%c3%a1y%20%e1%ba%a2o%20%c4%90%e1%ba%b1ng%20Sau%20S%e1%bb%a9c%20M%e1%ba%a1nh%20%c4%90a%20N%e1%bb%81n%20T%e1%ba%a3ng%20C%e1%bb%a7a%20Java&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a54029%2fblog%2fgiai_ma_jvm%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar = false;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+            &copy; 2025  All Rights Reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>
