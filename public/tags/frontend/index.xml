@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Frontend on Blog của Khang</title>
-    <link>http://localhost:61427/tags/frontend/</link>
-    <description>Recent content in Frontend on Blog của Khang</description>
+    <title>Frontend on Hugo Profile</title>
+    <link>http://localhost:53767/tags/frontend/</link>
+    <description>Recent content in Frontend on Hugo Profile</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:61427/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53767/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ReactJS – Xây Dựng Giao Diện Người Dùng Theo Cách Của Facebook</title>
-      <link>http://localhost:61427/blog/baiblog6/</link>
+      <link>http://localhost:53767/blog/baiblog6/</link>
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61427/blog/baiblog6/</guid>
+      <guid>http://localhost:53767/blog/baiblog6/</guid>
       <description>&lt;p&gt;Trong thế giới frontend, sự thay đổi diễn ra chóng mặt. Nhưng giữa hàng loạt các thư viện và framework, &lt;strong&gt;ReactJS&lt;/strong&gt; nổi lên như một thế lực thống trị. Được tạo ra và bảo trì bởi Facebook, React đã thay đổi hoàn toàn cách chúng ta suy nghĩ và xây dựng giao diện người dùng (UI) cho các ứng dụng web hiện đại.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-react-là-gì-và-nó-không-phải-là-một-framework&#34;&gt;1. React là gì? (Và nó KHÔNG phải là một framework)&lt;/h2&gt;&#xA;&lt;p&gt;Một điểm quan trọng cần làm rõ: React là một &lt;strong&gt;thư viện (library)&lt;/strong&gt; JavaScript, không phải là một &lt;strong&gt;framework&lt;/strong&gt; hoàn chỉnh như Angular hay Vue.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java vs. JavaScript: Cuộc Đối Đầu Giữa Backend và Frontend</title>
-      <link>http://localhost:61427/blog/be_fe/</link>
+      <link>http://localhost:53767/blog/be_fe/</link>
       <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61427/blog/be_fe/</guid>
+      <guid>http://localhost:53767/blog/be_fe/</guid>
       <description>&lt;p&gt;Sau khi đã làm quen với cả Java và JavaScript, nhiều người mới bắt đầu sẽ đứng trước một ngã rẽ quan trọng: nên tập trung vào con đường nào? Backend với sự ổn định của Java hay Frontend với sự năng động của JavaScript? Bài viết này sẽ đặt hai gã khổng lồ này lên bàn cân để giúp bạn đưa ra lựa chọn phù hợp nhất với định hướng sự nghiệp của mình.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Chào Thế Giới JavaScript! Ngôn Ngữ Quyền Năng Của Trình Duyệt</title>
-      <link>http://localhost:61427/blog/the_gioi_java/</link>
+      <link>http://localhost:53767/blog/the_gioi_java/</link>
       <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61427/blog/the_gioi_java/</guid>
+      <guid>http://localhost:53767/blog/the_gioi_java/</guid>
       <description>&lt;p&gt;Nếu Java là trụ cột của thế giới backend doanh nghiệp, thì &lt;strong&gt;JavaScript (JS)&lt;/strong&gt; chính là vị vua không thể tranh cãi của thế giới frontend. Ban đầu được tạo ra chỉ trong 10 ngày để làm cho các trang web trở nên &amp;ldquo;sống động&amp;rdquo;, JS đã phát triển thành một hệ sinh thái khổng lồ, có thể chạy ở mọi nơi từ trình duyệt, máy chủ, cho đến thiết bị di động.&lt;/p&gt;</description>
     </item>
   </channel>

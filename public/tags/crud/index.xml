@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Crud on Blog của Khang</title>
-    <link>http://localhost:61427/tags/crud/</link>
-    <description>Recent content in Crud on Blog của Khang</description>
+    <title>Crud on Hugo Profile</title>
+    <link>http://localhost:53767/tags/crud/</link>
+    <description>Recent content in Crud on Hugo Profile</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:61427/tags/crud/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53767/tags/crud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA</title>
-      <link>http://localhost:61427/blog/baiblog8/</link>
+      <link>http://localhost:53767/blog/baiblog8/</link>
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61427/blog/baiblog8/</guid>
+      <guid>http://localhost:53767/blog/baiblog8/</guid>
       <description>&lt;p&gt;Sau khi đã tìm hiểu về các khái niệm lý thuyết, đã đến lúc chúng ta bắt tay vào thực hành. Trong bài này, chúng ta sẽ xây dựng một ứng dụng web cơ bản nhất nhưng cũng quan trọng nhất: một &lt;strong&gt;RESTful API&lt;/strong&gt; hỗ trợ các thao tác &lt;strong&gt;CRUD (Create, Read, Update, Delete)&lt;/strong&gt;. Chúng ta sẽ sử dụng Spring Boot và Spring Data JPA để quản lý một danh sách sản phẩm đơn giản. 🛠️&lt;/p&gt;</description>
     </item>
   </channel>

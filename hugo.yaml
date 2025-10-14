@@ -1,6 +1,6 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://ThachKhang2204.github.io/myblog/"
 languageCode: "en-us"
-title: "Hugo Profile"
+title: "Hugo Profile"  
 theme: hugo-profile
 
 outputs:
