@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trends on Hugo Profile</title>
+    <link>http://localhost:1313/blog/tags/trends/</link>
+    <description>Recent content in Trends on Hugo Profile</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/trends/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tương Lai Của Java và JavaScript: Những Xu Hướng Bạn Không Thể Bỏ Lỡ</title>
+      <link>http://localhost:1313/blog/blog/baiblog7/</link>
+      <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/blog/baiblog7/</guid>
+      <description>&lt;p&gt;Thế giới công nghệ không bao giờ ngừng vận động. Java và JavaScript, dù đã có vị thế vững chắc, vẫn liên tục phát triển để đáp ứng những thách thức mới. Là một lập trình viên, việc nắm bắt các xu hướng tương lai không chỉ giúp bạn cập nhật kỹ năng mà còn mở ra những cơ hội nghề nghiệp mới. Hãy cùng điểm qua những hướng đi nổi bật nhất trong hệ sinh thái của hai ngôn ngữ này.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
