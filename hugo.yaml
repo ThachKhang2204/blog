@@ -49,7 +49,7 @@ params:
   staticPath: ""
   favicon: "/images/favicon.ico"
 
-  useBootstrapCDN: false
+  useBootstrapCDN: true
   animate: true
 
   theme:
@@ -86,7 +86,7 @@ params:
     title: "Khang"
     subtitle: "Sinh viên & Lập trình viên"
     content: "Đây là blog cá nhân nơi tôi chia sẻ kiến thức về lập trình, học tập và công nghệ."
-    image: /images/avatar.jpg
+    image: /blog/images/avatar.jpg
     bottomImage:
       enable: true
     roundImage: true
@@ -106,7 +106,7 @@ params:
   about:
     enable: true
     title: "Về tôi"
-    image: "/images/avatar.jpg"
+    image: "/blog/images/avatar.jpg"
     content: |-
       Tôi là một sinh viên đam mê lập trình và công nghệ. Hiện tại đang học tập và phát triển kỹ năng trong các lĩnh vực:
       
