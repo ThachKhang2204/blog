@@ -28,8 +28,6 @@ markup:
     renderer:
       unsafe: true
 
-staticPath: ""
-
 menu:
   main:
     - identifier: blog
