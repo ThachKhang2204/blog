@@ -1,5 +1,5 @@
 baseURL: "https://ThachKhang2204.github.io/blog/"
-languageCode: "en-us"
+languageCode: "en-us"  
 title: "Hugo Profile"
 theme: hugo-profile
 
