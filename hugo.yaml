@@ -45,9 +45,9 @@ params:
   title: "Blog của Khang"
   description: "Blog cá nhân về lập trình và công nghệ"
   staticPath: ""
-  favicon: "/images/favicon.ico"
+  favicon: "/blog/images/favicon.ico"
 
-  useBootstrapCDN: false
+  useBootstrapCDN: true
   animate: true
 
   theme:
@@ -84,7 +84,7 @@ params:
     title: "Khang"
     subtitle: "Sinh viên & Lập trình viên"
     content: "Đây là blog cá nhân nơi tôi chia sẻ kiến thức về lập trình, học tập và công nghệ."
-    image: /images/avatar.jpg
+    image: /blog/images/avatar.jpg
     bottomImage:
       enable: true
     roundImage: true
@@ -104,7 +104,7 @@ params:
   about:
     enable: true
     title: "Về tôi"
-    image: "/images/avatar.jpg"
+    image: "/blog/images/avatar.jpg"
     content: |-
       Tôi là một sinh viên đam mê lập trình và công nghệ. Hiện tại đang học tập và phát triển kỹ năng trong các lĩnh vực:
       
@@ -157,7 +157,7 @@ params:
     items:
       - title: Website bán điện thoại
         content: Một website thương mại điện tử sử dụng ASP.NET Core, có giỏ hàng và thanh toán cơ bản.
-        image: /images/projects/project1.jpg
+        image: /blog/images/projects/project1.jpg
         featured:
           name: Demo
           link: https://hugo-profile.netlify.app
@@ -171,7 +171,7 @@ params:
 
       - title: Blog cá nhân
         content: Blog được xây dựng bằng Hugo để chia sẻ kiến thức lập trình và học tập.
-        image: /images/projects/project2.jpg
+        image: /blog/images/projects/project2.jpg
         featured:
           name: Demo
           link: https://ThachKhang2204.github.io/myblog
