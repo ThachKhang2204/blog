@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lập Trình on Blog của Khang</title>
-    <link>http://localhost:54029/tags/l%E1%BA%ADp-tr%C3%ACnh/</link>
+    <link>http://localhost:61427/tags/l%E1%BA%ADp-tr%C3%ACnh/</link>
     <description>Recent content in Lập Trình on Blog của Khang</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:54029/tags/l%E1%BA%ADp-tr%C3%ACnh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:61427/tags/l%E1%BA%ADp-tr%C3%ACnh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hành trình đến với lập trình – Khi đam mê bắt đầu từ con số 0</title>
-      <link>http://localhost:54029/blog/hanh-trinh-lap-trinh/</link>
+      <link>http://localhost:61427/blog/hanh-trinh-lap-trinh/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54029/blog/hanh-trinh-lap-trinh/</guid>
+      <guid>http://localhost:61427/blog/hanh-trinh-lap-trinh/</guid>
       <description>&lt;h2 id=&#34;bắt-đầu-từ-số-0&#34;&gt;Bắt đầu từ số 0&lt;/h2&gt;&#xA;&lt;p&gt;Tôi đến với lập trình không phải từ những dòng mã phức tạp hay giáo trình dày cộm, mà chỉ từ một câu hỏi đơn giản:&lt;br&gt;&#xA;&lt;strong&gt;“Làm sao để tạo ra một trang web của riêng mình?”&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Từ đó, tôi bắt đầu tìm hiểu về HTML, CSS, rồi đến các ngôn ngữ backend như &lt;strong&gt;PHP, ASP.NET Core&lt;/strong&gt;. Ban đầu mọi thứ thật rối rắm – nhưng mỗi lần giải được một lỗi, tôi lại thấy mình tiến bộ thêm một chút.&lt;/p&gt;</description>
     </item>
   </channel>
