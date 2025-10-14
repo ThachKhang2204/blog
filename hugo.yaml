@@ -3,7 +3,7 @@ languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
-relativeURLs: true
+relativeURLs: false
 canonifyURLs: true
 enableGitInfo: false
 
@@ -26,6 +26,9 @@ enableRobotsTXT: true
 
 pagination:
   pagerSize: 3
+
+permalinks:
+  blog: "/:slug/"
 
 markup:
   goldmark:
