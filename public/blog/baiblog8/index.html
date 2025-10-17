@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62515&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
-<link rel="icon" href=/images/favicon.ico type="image/gif">
+<link rel="icon" href=../../fav.png type="image/gif">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,11 +24,11 @@
 </noscript>
 
 
-<link rel="stylesheet" href="/css/font.css" media="all">
+<link rel="stylesheet" href="../../css/font.css" media="all">
 
 
 
-<meta property="og:url" content="http://localhost:1313/blog/blog/baiblog8/">
+<meta property="og:url" content="//localhost:62515/blog/baiblog8/">
   <meta property="og:site_name" content="Hugo Profile">
   <meta property="og:title" content="Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA">
   <meta property="og:description" content="Sau khi đã tìm hiểu về các khái niệm lý thuyết, đã đến lúc chúng ta bắt tay vào thực hành. Trong bài này, chúng ta sẽ xây dựng một ứng dụng web cơ bản nhất nhưng cũng quan trọng nhất: một RESTful API hỗ trợ các thao tác CRUD (Create, Read, Update, Delete). Chúng ta sẽ sử dụng Spring Boot và Spring Data JPA để quản lý một danh sách sản phẩm đơn giản. 🛠️">
@@ -50,11 +50,11 @@
   <meta name="twitter:description" content="Sau khi đã tìm hiểu về các khái niệm lý thuyết, đã đến lúc chúng ta bắt tay vào thực hành. Trong bài này, chúng ta sẽ xây dựng một ứng dụng web cơ bản nhất nhưng cũng quan trọng nhất: một RESTful API hỗ trợ các thao tác CRUD (Create, Read, Update, Delete). Chúng ta sẽ sử dụng Spring Boot và Spring Data JPA để quản lý một danh sách sản phẩm đơn giản. 🛠️">
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="/css/header.css" media="all">
-<link rel="stylesheet" href="/css/footer.css" media="all">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="../../css/header.css" media="all">
+<link rel="stylesheet" href="../../css/footer.css" media="all">
 
 
-<link rel="stylesheet" href="/css/theme.css" media="all">
+<link rel="stylesheet" href="../../css/theme.css" media="all">
 
 <style>
     :root {
@@ -112,10 +112,10 @@
 
 
 <meta name="description" content="">
-<link rel="stylesheet" href="/css/single.css">
+<link rel="stylesheet" href="../../css/single.css">
 
 
-<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+<script defer src="../../fontawesome-6/all-6.4.2.js"></script>
 
 
   
@@ -184,7 +184,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
     <nav class="pt-3 navbar navbar-expand-lg animate">
         <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
             
-            <a class="navbar-brand primary-font text-wrap" href="/blog">
+            <a class="navbar-brand primary-font text-wrap" href="//localhost:62515/">
                 
                 Blog của Khang
                 
@@ -218,7 +218,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
 
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog#about" aria-label="about">
+                        <a class="nav-link" href="//localhost:62515/#about" aria-label="about">
                             Về tôi
                         </a>
                     </li>
@@ -228,7 +228,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
 
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog#education"
+                        <a class="nav-link" href="//localhost:62515/#education"
                             aria-label="education">
                             Học vấn
                         </a>
@@ -237,7 +237,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
 
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog#projects"
+                        <a class="nav-link" href="//localhost:62515/#projects"
                             aria-label="projects">
                             Dự án
                         </a>
@@ -248,7 +248,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
 
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog#contact"
+                        <a class="nav-link" href="//localhost:62515/#contact"
                             aria-label="contact">
                             Liên hệ
                         </a>
@@ -262,7 +262,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
                     
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog/blog" title="Blog posts">
+                        <a class="nav-link" href="../../blog" title="Blog posts">
                             
                             Blog
                         </a>
@@ -272,7 +272,7 @@ Thực Hành: Xây Dựng CRUD API Đầu Tiên với Spring Boot và JPA | Hugo
                     
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blog/gallery" title="Blog posts">
+                        <a class="nav-link" href="../../gallery" title="Blog posts">
                             
                             Gallery
                         </a>
@@ -510,27 +510,27 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
             <h5>Tags</h5>
             <ul class="tags-ul list-unstyled list-inline">
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/java"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/java"
                 target="_blank"
               >java</a></li>
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/spring-boot"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/spring-boot"
                 target="_blank"
               >spring-boot</a></li>
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/backend"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/backend"
                 target="_blank"
               >backend</a></li>
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/api"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/api"
                 target="_blank"
               >api</a></li>
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/crud"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/crud"
                 target="_blank"
               >crud</a></li>
               
-              <li class="list-inline-item"><a href="http://localhost:1313/blog/tags/tutorial"
+              <li class="list-inline-item"><a href="//localhost:62515/tags/tutorial"
                 target="_blank"
               >tutorial</a></li>
               
@@ -544,25 +544,25 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text= http%3a%2f%2flocalhost%3a1313%2fblog%2fblog%2fbaiblog8%2f">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text= %2f%2flocalhost%3a62515%2fblog%2fbaiblog8%2f">
                     <i class="fab fa-linkedin"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
                   
                   
-                  <a target="_blank" href='https://twitter.com/share?text=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA&url=%3cnil%3ehttp%3a%2f%2flocalhost%3a1313%2fblog%2fblog%2fbaiblog8%2f&hashtags=java%2cspring-boot%2cbackend%2capi%2ccrud%2ctutorial'>
+                  <a target="_blank" href='https://twitter.com/share?text=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA&url=%3cnil%3e%2f%2flocalhost%3a62515%2fblog%2fbaiblog8%2f&hashtags=java%2cspring-boot%2cbackend%2capi%2ccrud%2ctutorial'>
                     <i class="fab fa-twitter"></i>
                   </a>
                   
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA: http%3a%2f%2flocalhost%3a1313%2fblog%2fblog%2fbaiblog8%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA: %2f%2flocalhost%3a62515%2fblog%2fbaiblog8%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href='mailto:?subject=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA&amp;body=Ki%e1%bb%83m%20tra%20email%20v%c3%a0%20th%e1%bb%ad%20l%e1%ba%a1i http%3a%2f%2flocalhost%3a1313%2fblog%2fblog%2fbaiblog8%2f'>
+                  <a target="_blank" href='mailto:?subject=Th%e1%bb%b1c%20H%c3%a0nh%3a%20X%c3%a2y%20D%e1%bb%b1ng%20CRUD%20API%20%c4%90%e1%ba%a7u%20Ti%c3%aan%20v%e1%bb%9bi%20Spring%20Boot%20v%c3%a0%20JPA&amp;body=Ki%e1%bb%83m%20tra%20email%20v%c3%a0%20th%e1%bb%ad%20l%e1%ba%a1i %2f%2flocalhost%3a62515%2fblog%2fbaiblog8%2f'>
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>
@@ -588,7 +588,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
 <div class="progress">
   <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<Script src="/js/scrollProgressBar.js"></script>
+<Script src="../../js/scrollProgressBar.js"></script>
 
 
 <script>
@@ -621,7 +621,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
 </script>
 
 
-<script src="/js/readingTime.js"></script>
+<script src="../../js/readingTime.js"></script>
 
 
 
@@ -641,7 +641,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
             <div class="card h-100">
                 
                 <div class="card-body bg-transparent p-3 shadow-sm">
-                    <a href="/blog/blog/baiblog10/" class="primary-font card-title">
+                    <a href="../../blog/baiblog10/" class="primary-font card-title">
                         <h5 class="card-title bg-transparent" title="Bảo Mật API: Giới Thiệu Spring Security và JWT cho Backend">Bảo Mật API: Giới Thiệu …</h5>
                     </a>
                     <div class="card-text secondary-font">
@@ -650,7 +650,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
                 </div>
                 <div class="mt-auto card-footer">
                     <span class="float-start">Oct 13, 2025</span>
-                    <a href="/blog/blog/baiblog10/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                    <a href="../../blog/baiblog10/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
                 </div>
             </div>
         </div>
@@ -659,7 +659,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
             <div class="card h-100">
                 
                 <div class="card-body bg-transparent p-3 shadow-sm">
-                    <a href="/blog/blog/baiblog9/" class="primary-font card-title">
+                    <a href="../../blog/baiblog9/" class="primary-font card-title">
                         <h5 class="card-title bg-transparent" title="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend">Full-Stack Thực Chiến: …</h5>
                     </a>
                     <div class="card-text secondary-font">
@@ -668,7 +668,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
                 </div>
                 <div class="mt-auto card-footer">
                     <span class="float-start">Oct 13, 2025</span>
-                    <a href="/blog/blog/baiblog9/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                    <a href="../../blog/baiblog9/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
                 </div>
             </div>
         </div>
@@ -677,7 +677,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
             <div class="card h-100">
                 
                 <div class="card-body bg-transparent p-3 shadow-sm">
-                    <a href="/blog/blog/kham_pha_cot_loi_java/" class="primary-font card-title">
+                    <a href="../../blog/kham_pha_cot_loi_java/" class="primary-font card-title">
                         <h5 class="card-title bg-transparent" title="Khám Phá Cốt Lõi Của Java – Sức Mạnh Của Lập Trình Hướng Đối Tượng (OOP)">Khám Phá Cốt Lõi Của Java …</h5>
                     </a>
                     <div class="card-text secondary-font">
@@ -686,7 +686,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
                 </div>
                 <div class="mt-auto card-footer">
                     <span class="float-start">Oct 13, 2025</span>
-                    <a href="/blog/blog/kham_pha_cot_loi_java/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                    <a href="../../blog/kham_pha_cot_loi_java/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
                 </div>
             </div>
         </div>
@@ -743,8 +743,8 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
         <div class="col-md-4 text-center">
             
                 <div class="pb-2">
-                    <a href="http://localhost:1313/blog/" title="Hugo Profile">
-                        <img alt="Footer logo" src="/images/favicon.ico"
+                    <a href="//localhost:62515/" title="Hugo Profile">
+                        <img alt="Footer logo" src="../../fav.png"
                             height="40px" width="40px">
                     </a>
                 </div>
@@ -795,7 +795,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
 </script>
 
 
-    <script src="/js/search.js"></script>
+    <script src="../../js/search.js"></script>
 
 
 
@@ -804,7 +804,7 @@ với API backend này để tạo thành một ứng dụng full-stack hoàn ch
 
 
 
-<script src="/js/contact.js"></script>
+<script src="../../js/contact.js"></script>
 
 
 

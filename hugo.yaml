@@ -1,10 +1,10 @@
-baseURL: "https://ThachKhang2204.github.io/blog/"
+baseURL: "/"
 languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
-relativeURLs: false
-canonifyURLs: true
+relativeURLs: true
+canonifyURLs: false
 enableGitInfo: false
 
 outputs:
@@ -27,15 +27,17 @@ enableRobotsTXT: true
 pagination:
   pagerSize: 3
 
-permalinks:
-  blog: "/:slug/"
+# Bỏ permalinks để sử dụng default
+# permalinks:
+#   blog: "/:contentbasename/"
 
 markup:
   goldmark:
     renderer:
       unsafe: true
 
-staticPath: "/blog"
+params:
+  staticPath: ""
 
 menu:
   main:

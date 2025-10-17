@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/tags/api/</loc>
+    <loc>//localhost:62515/tags/api/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/axios/</loc>
+    <loc>//localhost:62515/tags/axios/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/backend/</loc>
+    <loc>//localhost:62515/tags/backend/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/baiblog10/</loc>
+    <loc>//localhost:62515/blog/baiblog10/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/</loc>
+    <loc>//localhost:62515/blog/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/cloud-native/</loc>
+    <loc>//localhost:62515/tags/cloud-native/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/crud/</loc>
+    <loc>//localhost:62515/tags/crud/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/frontend/</loc>
+    <loc>//localhost:62515/tags/frontend/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/full-stack/</loc>
+    <loc>//localhost:62515/tags/full-stack/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/baiblog9/</loc>
+    <loc>//localhost:62515/blog/baiblog9/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/future-of-programming/</loc>
+    <loc>//localhost:62515/tags/future-of-programming/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>//localhost:62515/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/java/</loc>
+    <loc>//localhost:62515/tags/java/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/javascript/</loc>
+    <loc>//localhost:62515/tags/javascript/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/jwt/</loc>
+    <loc>//localhost:62515/tags/jwt/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/kham_pha_cot_loi_java/</loc>
+    <loc>//localhost:62515/blog/kham_pha_cot_loi_java/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/lap-trinh-huong-doi-tuong/</loc>
+    <loc>//localhost:62515/tags/lap-trinh-huong-doi-tuong/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/oop/</loc>
+    <loc>//localhost:62515/tags/oop/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/react/</loc>
+    <loc>//localhost:62515/tags/react/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/baiblog6/</loc>
+    <loc>//localhost:62515/blog/baiblog6/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/security/</loc>
+    <loc>//localhost:62515/tags/security/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/spring-boot/</loc>
+    <loc>//localhost:62515/tags/spring-boot/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/spring-security/</loc>
+    <loc>//localhost:62515/tags/spring-security/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/</loc>
+    <loc>//localhost:62515/tags/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/baiblog8/</loc>
+    <loc>//localhost:62515/blog/baiblog8/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/trends/</loc>
+    <loc>//localhost:62515/tags/trends/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/baiblog7/</loc>
+    <loc>//localhost:62515/blog/baiblog7/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/tutorial/</loc>
+    <loc>//localhost:62515/tags/tutorial/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/ui/</loc>
+    <loc>//localhost:62515/tags/ui/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/career/</loc>
+    <loc>//localhost:62515/tags/career/</loc>
     <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/be_fe/</loc>
+    <loc>//localhost:62515/blog/be_fe/</loc>
     <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/the_gioi_java/</loc>
+    <loc>//localhost:62515/blog/the_gioi_java/</loc>
     <lastmod>2025-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/web-development/</loc>
+    <loc>//localhost:62515/tags/web-development/</loc>
     <lastmod>2025-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/architecture/</loc>
+    <loc>//localhost:62515/tags/architecture/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/chia-s%E1%BA%BB/</loc>
+    <loc>//localhost:62515/tags/chia-s%E1%BA%BB/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/giai_ma_jvm/</loc>
+    <loc>//localhost:62515/blog/giai_ma_jvm/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/h%C3%A0nh-tr%C3%ACnh/</loc>
+    <loc>//localhost:62515/tags/h%C3%A0nh-tr%C3%ACnh/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/blog/hanh-trinh-lap-trinh/</loc>
+    <loc>//localhost:62515/blog/hanh-trinh-lap-trinh/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/jvm/</loc>
+    <loc>//localhost:62515/tags/jvm/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/l%E1%BA%ADp-tr%C3%ACnh/</loc>
+    <loc>//localhost:62515/tags/l%E1%BA%ADp-tr%C3%ACnh/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/categories/</loc>
+    <loc>//localhost:62515/categories/</loc>
   </url>
 </urlset>

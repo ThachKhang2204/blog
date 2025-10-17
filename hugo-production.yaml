@@ -1,0 +1,43 @@
+baseURL: "https://ThachKhang2204.github.io/blog/"
+languageCode: "en-us"
+title: "Hugo Profile"
+theme: hugo-profile
+
+relativeURLs: false
+canonifyURLs: true
+enableGitInfo: false
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
+
+enableRobotsTXT: true
+
+pagination:
+  pagerSize: 3
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  staticPath: "/blog"
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      title: Blog posts
+      url: /blog
+      weight: 1
+    - identifier: gallery
+      name: Gallery
+      title: Blog posts
+      url: /gallery
+      weight: 2
