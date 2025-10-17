@@ -1,0 +1,31 @@
+{{ define "head" }}
+<meta name="description" content="Trang không tìm thấy - {{ .Site.Title }}">
+{{ end }}
+
+{{ define "title" }}
+404 - Trang không tìm thấy | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="container py-5 text-center">
+    <img src="{{ absURL "images/404.png" }}" alt="404 - Trang không tìm thấy" class="img-fluid mb-4" width="40%">
+    <h1 class="mb-4">Trang không tìm thấy</h1>
+    <p class="text-muted mb-4">Xin lỗi, trang bạn đang tìm kiếm không tồn tại.</p>
+    
+    <!-- Debug info for development -->
+    {{ if eq hugo.Environment "development" }}
+    <div class="alert alert-info">
+        <h5>Debug Info:</h5>
+        <p><strong>Requested URL:</strong> {{ .Permalink }}</p>
+        <p><strong>Base URL:</strong> {{ .Site.BaseURL }}</p>
+        <p><strong>Kind:</strong> {{ .Kind }}</p>
+        <p><strong>Type:</strong> {{ .Type }}</p>
+    </div>
+    {{ end }}
+    
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{{ "/" | absURL }}" class="btn btn-primary">Về trang chủ</a>
+        <a href="{{ "/blog" | absURL }}" class="btn btn-outline-primary">Xem blog</a>
+    </div>
+</div>
+{{ end }}

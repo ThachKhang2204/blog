@@ -46,6 +46,10 @@
             Trang {{ .Paginator.PageNumber }} của {{ .Paginator.TotalPages }} 
             ({{ .Paginator.TotalNumberOfElements }} bài viết)
         </small>
+        <br>
+        <small class="text-info">
+            Current URL: {{ .Permalink }} | Base URL: {{ .Site.BaseURL }}
+        </small>
     </div>
     
     <!-- Custom Pagination -->
@@ -56,7 +60,7 @@
                 <ul class="pagination">
                     {{ if .Paginator.HasPrev }}
                         <li class="page-item">
-                            <a class="page-link" href="{{ .Paginator.Prev.URL }}">&laquo; Trước</a>
+                            <a class="page-link" href="{{ .Paginator.Prev.URL | absURL }}">&laquo; Trước</a>
                         </li>
                     {{ end }}
                     
@@ -67,14 +71,14 @@
                             </li>
                         {{ else }}
                             <li class="page-item">
-                                <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+                                <a class="page-link" href="{{ .URL | absURL }}">{{ .PageNumber }}</a>
                             </li>
                         {{ end }}
                     {{ end }}
                     
                     {{ if .Paginator.HasNext }}
                         <li class="page-item">
-                            <a class="page-link" href="{{ .Paginator.Next.URL }}">Tiếp &raquo;</a>
+                            <a class="page-link" href="{{ .Paginator.Next.URL | absURL }}">Tiếp &raquo;</a>
                         </li>
                     {{ end }}
                 </ul>

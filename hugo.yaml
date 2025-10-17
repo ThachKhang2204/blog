@@ -4,7 +4,7 @@ title: "Hugo Profile"
 theme: hugo-profile
 
 relativeURLs: false
-canonifyURLs: true
+canonifyURLs: false
 enableGitInfo: false
 
 outputs:
@@ -39,18 +39,19 @@ markup:
 params:
   staticPath: "/blog"
 
+# Chỉ giữ menu này, xóa menu.main ở trên
 menu:
   main:
     - identifier: blog
       name: Blog
       title: Blog posts
       url: /blog
-      weight: 1
+      weight: 5
     - identifier: gallery
       name: Gallery
-      title: Blog posts
+      title: Gallery
       url: /gallery
-      weight: 2
+      weight: 6
 
 params:
   title: "Blog của Khang"
@@ -86,7 +87,7 @@ params:
       showOnScrollUp: true
     menus:
       disableAbout: false
-      disableExperience: false
+      disableExperience: true
       disableEducation: false
       disableProjects: false
       disableAchievements: true
