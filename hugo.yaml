@@ -36,10 +36,6 @@ markup:
     renderer:
       unsafe: true
 
-params:
-  staticPath: "/blog"
-
-# Chỉ giữ menu này, xóa menu.main ở trên
 menu:
   main:
     - identifier: blog
@@ -54,9 +50,9 @@ menu:
       weight: 6
 
 params:
+  staticPath: "/blog"
   title: "Blog của Khang"
   description: "Blog cá nhân về lập trình và công nghệ"
-  staticPath: ""
   # point favicon to an existing file in /static
   favicon: "/fav.png"
 
