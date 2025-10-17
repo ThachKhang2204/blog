@@ -1,112 +1,765 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><meta http-equiv=Accept-CH content="DPR, Viewport-Width, Width"><link rel=icon href=/blog/fav.png type=image/gif><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" media=print onload='this.media="all"'><noscript><link href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel=stylesheet></noscript><link rel=stylesheet href=/blog/css/font.css media=all><meta property="og:url" content="https://ThachKhang2204.github.io/blog/blog/baiblog9/"><meta property="og:site_name" content="Hugo Profile"><meta property="og:title" content="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend"><meta property="og:description" content="Ở các bài trước, chúng ta đã xây dựng một CRUD API mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với React. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="blog"><meta property="article:published_time" content="2025-10-13T00:00:00+00:00"><meta property="article:modified_time" content="2025-10-13T00:00:00+00:00"><meta property="article:tag" content="React"><meta property="article:tag" content="Spring-Boot"><meta property="article:tag" content="Full-Stack"><meta property="article:tag" content="Api"><meta property="article:tag" content="Axios"><meta property="article:tag" content="Tutorial"><meta name=twitter:card content="summary"><meta name=twitter:title content="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend"><meta name=twitter:description content="Ở các bài trước, chúng ta đã xây dựng một CRUD API mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với React. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous><link rel=stylesheet href=/blog/css/header.css media=all><link rel=stylesheet href=/blog/css/footer.css media=all><link rel=stylesheet href=/blog/css/theme.css media=all><style>:root{--text-color:#343a40;--text-secondary-color:#6c757d;--text-link-color:#007bff;--background-color:#eaedf0;--secondary-background-color:#64ffda1a;--primary-color:#007bff;--secondary-color:#f8f9fa;--text-color-dark:#e4e6eb;--text-secondary-color-dark:#b0b3b8;--text-link-color-dark:#ffffff;--background-color-dark:#18191a;--secondary-background-color-dark:#212529;--primary-color-dark:#ffffff;--secondary-color-dark:#212529}body{font-size:1rem;font-weight:400;line-height:1.5;text-align:left}html{background-color:var(--background-color)!important}body::-webkit-scrollbar{height:0;width:8px;background-color:var(--background-color)}::-webkit-scrollbar-track{border-radius:1rem}::-webkit-scrollbar-thumb{border-radius:1rem;background:#b0b0b0;outline:1px solid var(--background-color)}#search-content::-webkit-scrollbar{width:.5em;height:.1em;background-color:var(--background-color)}</style><meta name=description content><link rel=stylesheet href=/blog/css/single.css><script defer src=/blog/fontawesome-6/all-6.4.2.js></script><title>Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend | Hugo Profile</title></head><body class=light><script>var prevScrollPos=window.pageYOffset;window.addEventListener("scroll",function(){let n=document.getElementById("profileHeader"),e=window.pageYOffset,t=!1,s=!0,o=s?prevScrollPos>e:e>0;o?n.classList.add("showHeaderOnTop"):t=!0,e===0&&(t=!0),t&&n.classList.remove("showHeaderOnTop"),prevScrollPos=e})</script><header id=profileHeader><nav class="pt-3 navbar navbar-expand-lg animate"><div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5"><a class="navbar-brand primary-font text-wrap" href=/blog>Blog của Khang</a><div><input id=search autocomplete=off class="form-control mr-sm-2 d-none d-md-block" placeholder='Tìm kiếm...' aria-label=Search oninput=searchOnChange(event)></div><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarContent aria-controls=navbarContent aria-expanded=false aria-label="Toggle navigation">
-<svg aria-hidden="true" height="24" viewBox="0 0 16 16" width="24" data-view-component="true"><path fill-rule="evenodd" d="M1 2.75A.75.75.0 011.75 2h12.5a.75.75.0 110 1.5H1.75A.75.75.0 011 2.75zm0 5A.75.75.0 011.75 7h12.5a.75.75.0 110 1.5H1.75A.75.75.0 011 7.75zM1.75 12a.75.75.0 100 1.5h12.5a.75.75.0 100-1.5H1.75z"/></svg></button><div class="collapse navbar-collapse text-wrap primary-font" id=navbarContent><ul class="navbar-nav ms-auto text-center"><li class="nav-item navbar-text d-block d-md-none"><div class=nav-link><input id=search autocomplete=off class="form-control mr-sm-2" placeholder='Tìm kiếm...' aria-label=Search oninput=searchOnChange(event)></div></li><li class="nav-item navbar-text"><a class=nav-link href=/blog#about aria-label=about>Về tôi</a></li><li class="nav-item navbar-text"><a class=nav-link href=/blog#education aria-label=education>Học vấn</a></li><li class="nav-item navbar-text"><a class=nav-link href=/blog#projects aria-label=projects>Dự án</a></li><li class="nav-item navbar-text"><a class=nav-link href=/blog#contact aria-label=contact>Liên hệ</a></li><li class="nav-item navbar-text"><a class=nav-link href=/blog/blog title="Blog posts">Blog</a></li><li class="nav-item navbar-text"><a class=nav-link href=/blog/gallery title=Gallery>Gallery</a></li><li class="nav-item navbar-text"><div class=text-center><button id=theme-toggle>
-<svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></li></ul></div></div></nav></header><div id=content><section id=single><div class=container><div class="row justify-content-center"><div class="col-sm-12 col-md-12 col-lg-9"><div class=pr-lg-4><div class="title mb-5"><h1 class="text-center mb-4">Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend</h1><div class=text-center>Oct 13, 2025
-<span id=readingTime>phút đọc</span></div></div><article class="page-content p-2"><p>Ở các bài trước, chúng ta đã xây dựng một <strong>CRUD API</strong> mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với <strong>React</strong>. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗</p><hr><h2 id=1-chuẩn-bị-môi-trường-react>1. Chuẩn bị môi trường React</h2><p>Nếu chưa có, bạn hãy tạo một dự án React mới bằng công cụ <code>create-react-app</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npx create-react-app my-product-app
-</span></span><span style=display:flex><span>cd my-product-app
-</span></span></code></pre></div><p>Để giao tiếp với API, chúng ta sẽ cài đặt Axios – một HTTP client phổ biến.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install axios
-</span></span></code></pre></div><hr><h2 id=2-xây-dựng-component-hiển-thị-danh-sách-sản-phẩm>2. Xây dựng Component hiển thị danh sách sản phẩm</h2><p>Chúng ta sẽ tạo file <code>ProductList.js</code> để:</p><ul><li>Lấy dữ liệu sản phẩm từ API bằng <strong>axios</strong></li><li>Lưu vào state với <strong>useState</strong></li><li>Hiển thị lên giao diện bằng <code>.map()</code></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span>, <span style=color:#a6e22e>useEffect</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>axios</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;axios&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>API_URL</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://localhost:8080/api/products&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>ProductList</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>products</span>, <span style=color:#a6e22e>setProducts</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>([]);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>useEffect</span>(() =&gt; {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>axios</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>API_URL</span>)
-</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#a6e22e>setProducts</span>(<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>data</span>))
-</span></span><span style=display:flex><span>            .<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>error</span> =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Error fetching products!&#39;</span>, <span style=color:#a6e22e>error</span>));
-</span></span><span style=display:flex><span>    }, []);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h1</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Danh</span> <span style=color:#a6e22e>sách</span> <span style=color:#a6e22e>sản</span> <span style=color:#a6e22e>phẩm</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h1&gt;</span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ul</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>                {<span style=color:#a6e22e>products</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>product</span> =&gt; (
-</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span> <span style=color:#a6e22e>key</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>id</span>}<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>                        {<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>name</span>} <span style=color:#f92672>-</span> <span style=color:#a6e22e>$</span>{<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>price</span>}
-</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;</span>
-</span></span><span style=display:flex><span>                ))}
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/ul&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>    );
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>ProductList</span>;
-</span></span></code></pre></div><hr><h2 id=3-thêm-chức-năng-thêm--xóa-sản-phẩm>3. Thêm chức năng Thêm & Xóa sản phẩm</h2><p>Tiếp theo, chúng ta mở rộng <code>ProductList.js</code> để thêm sản phẩm (POST) và xóa sản phẩm (DELETE).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span>, <span style=color:#a6e22e>useEffect</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>axios</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;axios&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>API_URL</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://localhost:8080/api/products&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>ProductList</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>products</span>, <span style=color:#a6e22e>setProducts</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>([]);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>newProductName</span>, <span style=color:#a6e22e>setNewProductName</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>(<span style=color:#e6db74>&#39;&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>newProductPrice</span>, <span style=color:#a6e22e>setNewProductPrice</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>(<span style=color:#ae81ff>0</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fetchProducts</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>axios</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>API_URL</span>).<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>res</span> =&gt; <span style=color:#a6e22e>setProducts</span>(<span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>data</span>));
-</span></span><span style=display:flex><span>    };
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>useEffect</span>(() =&gt; {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>fetchProducts</span>();
-</span></span><span style=display:flex><span>    }, []);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handleAddProduct</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>newProduct</span> <span style=color:#f92672>=</span> { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>newProductName</span>, <span style=color:#a6e22e>price</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>newProductPrice</span> };
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>axios</span>.<span style=color:#a6e22e>post</span>(<span style=color:#a6e22e>API_URL</span>, <span style=color:#a6e22e>newProduct</span>).<span style=color:#a6e22e>then</span>(() =&gt; {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>fetchProducts</span>();
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>setNewProductName</span>(<span style=color:#e6db74>&#39;&#39;</span>);
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>setNewProductPrice</span>(<span style=color:#ae81ff>0</span>);
-</span></span><span style=display:flex><span>        });
-</span></span><span style=display:flex><span>    };
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handleDeleteProduct</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>id</span>) =&gt; {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>axios</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>API_URL</span><span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>id</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>).<span style=color:#a6e22e>then</span>(() =&gt; {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>fetchProducts</span>();
-</span></span><span style=display:flex><span>        });
-</span></span><span style=display:flex><span>    };
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h1</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Quản</span> <span style=color:#a6e22e>lý</span> <span style=color:#a6e22e>sản</span> <span style=color:#a6e22e>phẩm</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h1&gt;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span>
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span>
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>newProductName</span>}
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>e</span> =&gt; <span style=color:#a6e22e>setNewProductName</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>)}
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>placeholder</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Tên sản phẩm&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>/&gt;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span>
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;number&#34;</span>
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>newProductPrice</span>}
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>e</span> =&gt; <span style=color:#a6e22e>setNewProductPrice</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>)}
-</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>placeholder</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Giá&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>/&gt;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span> <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>handleAddProduct</span>}<span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Thêm</span> <span style=color:#a6e22e>sản</span> <span style=color:#a6e22e>phẩm</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/button&gt;</span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ul</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>                {<span style=color:#a6e22e>products</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>product</span> =&gt; (
-</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span> <span style=color:#a6e22e>key</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>id</span>}<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>                        {<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>name</span>} <span style=color:#f92672>-</span> <span style=color:#a6e22e>$</span>{<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>price</span>}
-</span></span><span style=display:flex><span>                        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span> <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{() =&gt; <span style=color:#a6e22e>handleDeleteProduct</span>(<span style=color:#a6e22e>product</span>.<span style=color:#a6e22e>id</span>)}<span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Xóa</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/button&gt;</span>
-</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;</span>
-</span></span><span style=display:flex><span>                ))}
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/ul&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>    );
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>ProductList</span>;
-</span></span></code></pre></div><hr><h2 id=4-lưu-ý-về-cors>4. Lưu ý về CORS</h2><p>Để frontend React (cổng 3000) gọi API backend Spring Boot (cổng 8080), hãy đảm bảo bạn đã bật CORS trong Controller:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@CrossOrigin</span>(origins <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;http://localhost:3000&#34;</span>)
-</span></span></code></pre></div><hr><h2 id=5-kết-luận>5. Kết luận</h2><p>Chúc mừng! Bạn đã kết nối thành công <strong>React + Spring Boot</strong> để tạo thành một ứng dụng Full-Stack thực thụ. Từ đây, bạn có thể mở rộng với:</p><ul><li>Cập nhật sản phẩm (PUT)</li><li>Tìm kiếm, phân trang</li><li>Bảo mật với JWT & Spring Security</li></ul><p>Trong bài tiếp theo, chúng ta sẽ tích hợp <strong>Spring Security + JWT</strong> để bảo vệ API.</p></article></div></div><div class="col-sm-12 col-md-12 col-lg-3"><div id=stickySideBar class=sticky-sidebar><aside class=toc><h5>Mục lục</h5><div class=toc-content><nav id=TableOfContents><ul><li><a href=#1-chuẩn-bị-môi-trường-react>1. Chuẩn bị môi trường React</a></li><li><a href=#2-xây-dựng-component-hiển-thị-danh-sách-sản-phẩm>2. Xây dựng Component hiển thị danh sách sản phẩm</a></li><li><a href=#3-thêm-chức-năng-thêm--xóa-sản-phẩm>3. Thêm chức năng Thêm & Xóa sản phẩm</a></li><li><a href=#4-lưu-ý-về-cors>4. Lưu ý về CORS</a></li><li><a href=#5-kết-luận>5. Kết luận</a></li></ul></nav></div></aside><aside class=tags><h5>Tags</h5><ul class="tags-ul list-unstyled list-inline"><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/react target=_blank>react</a></li><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/spring-boot target=_blank>spring-boot</a></li><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/full-stack target=_blank>full-stack</a></li><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/api target=_blank>api</a></li><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/axios target=_blank>axios</a></li><li class=list-inline-item><a href=https://ThachKhang2204.github.io/blog/tags/tutorial target=_blank>tutorial</a></li></ul></aside><aside class=social><h5>Social</h5><div class=social-content><ul class=list-inline><li class="list-inline-item text-center"><a target=_blank href="https://www.linkedin.com/feed/?shareActive=true&text= https%3a%2f%2fThachKhang2204.github.io%2fblog%2fblog%2fbaiblog9%2f"><i class="fab fa-linkedin"></i></a></li><li class="list-inline-item text-center"><a target=_blank href='https://twitter.com/share?text=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend&url=%3cnil%3ehttps%3a%2f%2fThachKhang2204.github.io%2fblog%2fblog%2fbaiblog9%2f&hashtags=react%2cspring-boot%2cfull-stack%2capi%2caxios%2ctutorial'><i class="fab fa-twitter"></i></a></li><li class="list-inline-item text-center"><a target=_blank href="https://api.whatsapp.com/send?text=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend: https%3a%2f%2fThachKhang2204.github.io%2fblog%2fblog%2fbaiblog9%2f"><i class="fab fa-whatsapp"></i></a></li><li class="list-inline-item text-center"><a target=_blank href='mailto:?subject=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend&amp;body=Ki%e1%bb%83m%20tra%20email%20v%c3%a0%20th%e1%bb%ad%20l%e1%ba%a1i https%3a%2f%2fThachKhang2204.github.io%2fblog%2fblog%2fbaiblog9%2f'><i class="fa fa-envelope"></i></a></li></ul></div></aside></div></div></div><div class=row><div class="col-sm-12 col-md-12 col-lg-9 p-4"></div></div></div><button class="p-2 px-3" onclick=topFunction() id=topScroll>
-<i class="fas fa-angle-up"></i></button></section><div class=progress><div id=scroll-progress-bar class=progress-bar role=progressbar aria-valuenow=0 aria-valuemin=0 aria-valuemax=100></div></div><script src=/blog/js/scrollProgressBar.js></script><script>var topScroll=document.getElementById("topScroll");window.onscroll=function(){scrollFunction()};function scrollFunction(){document.body.scrollTop>20||document.documentElement.scrollTop>20?topScroll.style.display="block":topScroll.style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}let stickySideBarElem=document.getElementById("stickySideBar"),stickyNavBar=!0;if(stickyNavBar){let e=document.getElementById("profileHeader"),t=e.offsetHeight+15;stickySideBarElem.style.top=t+"px"}else stickySideBarElem.style.top="50px"</script><script src=/blog/js/readingTime.js></script></div><footer><div class="container py-3" id=recent-posts><div class="h3 text-center text-secondary py-3">Bài viết mới nhất</div><div class="row justify-content-center"><div class="col-lg-4 col-md-6 pt-2"><div class="card h-100"><div class="card-body bg-transparent p-3 shadow-sm"><a href=/blog/blog/baiblog10/ class="primary-font card-title"><h5 class="card-title bg-transparent" title="Bảo Mật API: Giới Thiệu Spring Security và JWT cho Backend">Bảo Mật API: Giới Thiệu …</h5></a><div class="card-text secondary-font"><p><p>Chúng ta đã xây dựng một CRUD API hoạt động tốt, nhưng nó vẫn còn một lỗ hổng lớn: <strong>bất kỳ ai cũng có thể truy cập và thay đổi dữ liệu mà không cần xác thực</strong>. Trong thế giới thực, đây là điều không thể chấp nhận. Bài viết này sẽ giới thiệu cách bảo vệ các endpoint của bạn bằng <strong>Spring Security</strong> kết hợp …</p></p></div></div><div class="mt-auto card-footer"><span class=float-start>Oct 13, 2025</span>
-<a href=/blog/blog/baiblog10/ class="float-end btn btn-outline-info btn-sm">Đọc</a></div></div></div><div class="col-lg-4 col-md-6 pt-2"><div class="card h-100"><div class="card-body bg-transparent p-3 shadow-sm"><a href=/blog/blog/baiblog9/ class="primary-font card-title"><h5 class="card-title bg-transparent" title="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend">Full-Stack Thực Chiến: …</h5></a><div class="card-text secondary-font"><p><p>Ở các bài trước, chúng ta đã xây dựng một <strong>CRUD API</strong> mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với <strong>React</strong>. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, …</p></p></div></div><div class="mt-auto card-footer"><span class=float-start>Oct 13, 2025</span>
-<a href=/blog/blog/baiblog9/ class="float-end btn btn-outline-info btn-sm">Đọc</a></div></div></div><div class="col-lg-4 col-md-6 pt-2"><div class="card h-100"><div class="card-body bg-transparent p-3 shadow-sm"><a href=/blog/blog/kham_pha_cot_loi_java/ class="primary-font card-title"><h5 class="card-title bg-transparent" title="Khám Phá Cốt Lõi Của Java – Sức Mạnh Của Lập Trình Hướng Đối Tượng (OOP)">Khám Phá Cốt Lõi Của Java …</h5></a><div class="card-text secondary-font"><p><p>Trong bài trước, chúng ta đã tìm hiểu lý do Java trở thành một nền tảng lập trình quan trọng. Hôm nay, chúng ta sẽ đào sâu vào triết lý đã làm nên sức mạnh của Java: <strong>Lập trình Hướng đối tượng (Object-Oriented Programming - OOP)</strong>. Đây không chỉ là một tập hợp các quy tắc, mà là một phương pháp tư duy …</p></p></div></div><div class="mt-auto card-footer"><span class=float-start>Oct 13, 2025</span>
-<a href=/blog/blog/kham_pha_cot_loi_java/ class="float-end btn btn-outline-info btn-sm">Đọc</a></div></div></div></div></div><div class="text-center pt-2"><span class=px-1><a href=https://github.com/ThachKhang2204 target=_blank aria-label=github><svg width="2.7em" height="2.7em" viewBox="0 0 1792 1792"><path id="footer-socialNetworks-github-svg-path" d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5T1376 1664h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105T1386 856q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27T578 459.5 492 446q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5T484 1274q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5H416q-119 0-203.5-84.5T128 1376V416q0-119 84.5-203.5T416 128h960q119 0 203.5 84.5T1664 416z"/></svg>
-</a></span><a href=https://www.facebook.com/imjellyy/ target=_blank aria-label=facebook><svg viewBox="0 0 48 48" width="48" height="48"><path fill="#3F51B5" d="M42 37c0 2.762-2.238 5-5 5H11c-2.761.0-5-2.238-5-5V11c0-2.762 2.239-5 5-5h26c2.762.0 5 2.238 5 5V37z"/><path fill="#FFF" d="M34.368 25H31v13h-5V25h-3v-4h3v-2.41c.002-3.508 1.459-5.59 5.592-5.59H35v4h-2.287C31.104 17 31 17.6 31 18.723V21h4L34.368 25z"/></svg></a></div><div class="container py-4"><div class="row justify-content-center"><div class="col-md-4 text-center"><div class=pb-2><a href=https://ThachKhang2204.github.io/blog/ title="Hugo Profile"><img alt="Footer logo" src=/blog/fav.png height=40px width=40px></a></div>&copy; 2025 Tất cả quyền được bảo lưu<div class=text-secondary>Made with
-<span class=text-danger>&#10084;
-</span>and
-<a href=https://github.com/gurusabarish/hugo-profile target=_blank title="Designed and developed by gurusabarish">Hugo Profile</a></div></div></div></div></footer><script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js integrity=sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 crossorigin=anonymous></script><script>document.body.className.includes("dark")&&(document.body.classList.remove("dark"),document.documentElement.classList.remove("dark"),localStorage.setItem("pref-theme","light"))</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),document.documentElement.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),document.documentElement.classList.add("dark"),localStorage.setItem("pref-theme","dark"))});var tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(e){return new bootstrap.Tooltip(e)})</script><script src=/blog/js/search.js></script><script src=/blog/js/contact.js></script><section id=search-content class=py-2><div class=container id=search-results></div></section></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=51628&amp;path=blog/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/blog/fav.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/blog/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:51628/blog/blog/baiblog9/">
+  <meta property="og:site_name" content="Hugo Profile">
+  <meta property="og:title" content="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend">
+  <meta property="og:description" content="Ở các bài trước, chúng ta đã xây dựng một CRUD API mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với React. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-13T00:00:00+00:00">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Full-Stack">
+    <meta property="article:tag" content="Api">
+    <meta property="article:tag" content="Axios">
+    <meta property="article:tag" content="Tutorial">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend">
+  <meta name="twitter:description" content="Ở các bài trước, chúng ta đã xây dựng một CRUD API mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với React. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="/blog/css/header.css" media="all">
+<link rel="stylesheet" href="/blog/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/blog/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/blog/css/single.css">
+
+
+<script defer src="/blog/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend | Hugo Profile
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener('scroll', function() {
+        let profileHeader = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let hideNavBar = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeader.classList.add("showHeaderOnTop");
+        } else {
+            hideNavBar = true;
+        }
+        if (currentScrollPos === 0) {
+            hideNavBar = true;
+        }
+        if (hideNavBar) {
+            profileHeader.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/blog">
+                
+                Blog của Khang
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Tìm kiếm...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Tìm kiếm...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog#about" aria-label="about">
+                            Về tôi
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog#education"
+                            aria-label="education">
+                            Học vấn
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog#projects"
+                            aria-label="projects">
+                            Dự án
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog#contact"
+                            aria-label="contact">
+                            Liên hệ
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog/blog" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blog/gallery" title="Gallery">
+                            
+                            Gallery
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header><div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend</h1>
+            <div class="text-center">
+              
+              Oct 13, 2025
+
+              
+              <span id="readingTime">
+                phút đọc
+              </span>
+              
+            </div>
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>Ở các bài trước, chúng ta đã xây dựng một <strong>CRUD API</strong> mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với <strong>React</strong>. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, thêm, và xóa sản phẩm thông qua API backend. 🔗</p>
+<hr>
+<h2 id="1-chuẩn-bị-môi-trường-react">1. Chuẩn bị môi trường React</h2>
+<p>Nếu chưa có, bạn hãy tạo một dự án React mới bằng công cụ <code>create-react-app</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx create-react-app my-product-app
+</span></span><span style="display:flex;"><span>cd my-product-app
+</span></span></code></pre></div><p>Để giao tiếp với API, chúng ta sẽ cài đặt Axios – một HTTP client phổ biến.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install axios
+</span></span></code></pre></div><hr>
+<h2 id="2-xây-dựng-component-hiển-thị-danh-sách-sản-phẩm">2. Xây dựng Component hiển thị danh sách sản phẩm</h2>
+<p>Chúng ta sẽ tạo file <code>ProductList.js</code> để:</p>
+<ul>
+<li>Lấy dữ liệu sản phẩm từ API bằng <strong>axios</strong></li>
+<li>Lưu vào state với <strong>useState</strong></li>
+<li>Hiển thị lên giao diện bằng <code>.map()</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://localhost:8080/api/products&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ProductList</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">products</span>, <span style="color:#a6e22e">setProducts</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>([]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">API_URL</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">setProducts</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>            .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error fetching products!&#39;</span>, <span style="color:#a6e22e">error</span>));
+</span></span><span style="display:flex;"><span>    }, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Danh</span> <span style="color:#a6e22e">sách</span> <span style="color:#a6e22e">sản</span> <span style="color:#a6e22e">phẩm</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                {<span style="color:#a6e22e">products</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">product</span> =&gt; (
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                        {<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">name</span>} <span style="color:#f92672">-</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">price</span>}
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+</span></span><span style="display:flex;"><span>                ))}
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">ProductList</span>;
+</span></span></code></pre></div><hr>
+<h2 id="3-thêm-chức-năng-thêm--xóa-sản-phẩm">3. Thêm chức năng Thêm &amp; Xóa sản phẩm</h2>
+<p>Tiếp theo, chúng ta mở rộng <code>ProductList.js</code> để thêm sản phẩm (POST) và xóa sản phẩm (DELETE).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://localhost:8080/api/products&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ProductList</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">products</span>, <span style="color:#a6e22e">setProducts</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>([]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">newProductName</span>, <span style="color:#a6e22e">setNewProductName</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">newProductPrice</span>, <span style="color:#a6e22e">setNewProductPrice</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchProducts</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">API_URL</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; <span style="color:#a6e22e">setProducts</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>));
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetchProducts</span>();
+</span></span><span style="display:flex;"><span>    }, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleAddProduct</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newProduct</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newProductName</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newProductPrice</span> };
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">API_URL</span>, <span style="color:#a6e22e">newProduct</span>).<span style="color:#a6e22e">then</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">fetchProducts</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">setNewProductName</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">setNewProductPrice</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleDeleteProduct</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">id</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">axios</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">API_URL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>).<span style="color:#a6e22e">then</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">fetchProducts</span>();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Quản</span> <span style="color:#a6e22e">lý</span> <span style="color:#a6e22e">sản</span> <span style="color:#a6e22e">phẩm</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">newProductName</span>}
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">e</span> =&gt; <span style="color:#a6e22e">setNewProductName</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Tên sản phẩm&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">newProductPrice</span>}
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">e</span> =&gt; <span style="color:#a6e22e">setNewProductPrice</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Giá&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleAddProduct</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Thêm</span> <span style="color:#a6e22e">sản</span> <span style="color:#a6e22e">phẩm</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                {<span style="color:#a6e22e">products</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">product</span> =&gt; (
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                        {<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">name</span>} <span style="color:#f92672">-</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">price</span>}
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">handleDeleteProduct</span>(<span style="color:#a6e22e">product</span>.<span style="color:#a6e22e">id</span>)}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Xóa</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+</span></span><span style="display:flex;"><span>                ))}
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">ProductList</span>;
+</span></span></code></pre></div><hr>
+<h2 id="4-lưu-ý-về-cors">4. Lưu ý về CORS</h2>
+<p>Để frontend React (cổng 3000) gọi API backend Spring Boot (cổng 8080), hãy đảm bảo bạn đã bật CORS trong Controller:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>(origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://localhost:3000&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="5-kết-luận">5. Kết luận</h2>
+<p>Chúc mừng! Bạn đã kết nối thành công <strong>React + Spring Boot</strong> để tạo thành một ứng dụng Full-Stack thực thụ. Từ đây, bạn có thể mở rộng với:</p>
+<ul>
+<li>Cập nhật sản phẩm (PUT)</li>
+<li>Tìm kiếm, phân trang</li>
+<li>Bảo mật với JWT &amp; Spring Security</li>
+</ul>
+<p>Trong bài tiếp theo, chúng ta sẽ tích hợp <strong>Spring Security + JWT</strong> để bảo vệ API.</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Mục lục
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-chuẩn-bị-môi-trường-react">1. Chuẩn bị môi trường React</a></li>
+    <li><a href="#2-xây-dựng-component-hiển-thị-danh-sách-sản-phẩm">2. Xây dựng Component hiển thị danh sách sản phẩm</a></li>
+    <li><a href="#3-thêm-chức-năng-thêm--xóa-sản-phẩm">3. Thêm chức năng Thêm &amp; Xóa sản phẩm</a></li>
+    <li><a href="#4-lưu-ý-về-cors">4. Lưu ý về CORS</a></li>
+    <li><a href="#5-kết-luận">5. Kết luận</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/react"
+                target="_blank"
+              >react</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/spring-boot"
+                target="_blank"
+              >spring-boot</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/full-stack"
+                target="_blank"
+              >full-stack</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/api"
+                target="_blank"
+              >api</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/axios"
+                target="_blank"
+              >axios</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:51628/blog/tags/tutorial"
+                target="_blank"
+              >tutorial</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text= http%3a%2f%2flocalhost%3a51628%2fblog%2fblog%2fbaiblog9%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  
+                  
+                  <a target="_blank" href='https://twitter.com/share?text=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend&url=%3cnil%3ehttp%3a%2f%2flocalhost%3a51628%2fblog%2fblog%2fbaiblog9%2f&hashtags=react%2cspring-boot%2cfull-stack%2capi%2caxios%2ctutorial'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend: http%3a%2f%2flocalhost%3a51628%2fblog%2fblog%2fbaiblog9%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Full-Stack%20Th%e1%bb%b1c%20Chi%e1%ba%bfn%3a%20K%e1%ba%bft%20N%e1%bb%91i%20React%20Frontend%20v%e1%bb%9bi%20Spring%20Boot%20Backend&amp;body=Ki%e1%bb%83m%20tra%20email%20v%c3%a0%20th%e1%bb%ad%20l%e1%ba%a1i http%3a%2f%2flocalhost%3a51628%2fblog%2fblog%2fbaiblog9%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/blog/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar = true;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/blog/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Bài viết mới nhất
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blog/blog/baiblog10/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Bảo Mật API: Giới Thiệu Spring Security và JWT cho Backend">Bảo Mật API: Giới Thiệu …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>Chúng ta đã xây dựng một CRUD API hoạt động tốt, nhưng nó vẫn còn một lỗ hổng lớn: <strong>bất kỳ ai cũng có thể truy cập và thay đổi dữ liệu mà không cần xác thực</strong>. Trong thế giới thực, đây là điều không thể chấp nhận. Bài viết này sẽ giới thiệu cách bảo vệ các endpoint của bạn bằng <strong>Spring Security</strong> kết hợp …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Oct 13, 2025</span>
+                    <a href="/blog/blog/baiblog10/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blog/blog/baiblog9/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Full-Stack Thực Chiến: Kết Nối React Frontend với Spring Boot Backend">Full-Stack Thực Chiến: …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>Ở các bài trước, chúng ta đã xây dựng một <strong>CRUD API</strong> mạnh mẽ với Spring Boot và tìm hiểu cách tạo giao diện người dùng với <strong>React</strong>. Bây giờ là lúc kết nối hai mảnh ghép này lại để tạo thành một ứng dụng full-stack hoàn chỉnh. Trong bài này, chúng ta sẽ xây dựng một giao diện React đơn giản để hiển thị, …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Oct 13, 2025</span>
+                    <a href="/blog/blog/baiblog9/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blog/blog/kham_pha_cot_loi_java/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Khám Phá Cốt Lõi Của Java – Sức Mạnh Của Lập Trình Hướng Đối Tượng (OOP)">Khám Phá Cốt Lõi Của Java …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>Trong bài trước, chúng ta đã tìm hiểu lý do Java trở thành một nền tảng lập trình quan trọng. Hôm nay, chúng ta sẽ đào sâu vào triết lý đã làm nên sức mạnh của Java: <strong>Lập trình Hướng đối tượng (Object-Oriented Programming - OOP)</strong>. Đây không chỉ là một tập hợp các quy tắc, mà là một phương pháp tư duy …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Oct 13, 2025</span>
+                    <a href="/blog/blog/kham_pha_cot_loi_java/" class="float-end btn btn-outline-info btn-sm">Đọc</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/ThachKhang2204" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+
+    
+
+    
+    <a href="https://www.facebook.com/imjellyy/" target="_blank" aria-label="facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+            <path fill="#3F51B5"
+                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z" />
+            <path fill="#FFF"
+                d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z" />
+        </svg>
+    </a>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:51628/blog/" title="Hugo Profile">
+                        <img alt="Footer logo" src="/blog/fav.png"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2025  Tất cả quyền được bảo lưu
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script>
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
+    }
+</script>
+
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/blog/js/search.js"></script>
+
+
+
+
+
+
+
+
+<script src="/blog/js/contact.js"></script>
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>
