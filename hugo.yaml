@@ -54,7 +54,8 @@ params:
   title: "Blog của Khang"
   description: "Blog cá nhân về lập trình và công nghệ"
   staticPath: ""
-  favicon: "/images/favicon.ico"
+  # point favicon to an existing file in /static
+  favicon: "/fav.png"
 
   custom_css: ["/css/index.css", "/css/custom.css", "/css/project.css"]
 
@@ -206,6 +207,9 @@ params:
 
   footer:
     recentPosts:
+      enable: true
+      path: "blog"
+      count: 3
       path: "blog"
       count: 3
       title: Bài viết mới nhất
