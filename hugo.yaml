@@ -54,9 +54,10 @@ params:
   title: "Blog của Khang"
   description: "Blog cá nhân về lập trình và công nghệ"
   # point favicon to an existing file in /static
-  favicon: "/fav.png"
+  favicon: "/blog/fav.png"
 
-  custom_css: ["/css/index.css", "/css/custom.css", "/css/project.css"]
+  # Sửa đường dẫn CSS để có prefix /blog
+  custom_css: ["/blog/css/index.css", "/blog/css/custom.css", "/blog/css/project.css"]
 
   useBootstrapCDN: true
   animate: true
